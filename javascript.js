@@ -63,12 +63,11 @@ function playRound (humanChoice, computerChoice) {
     humanScore += 1;
   } else null
   
-
-  // return (humanChoice, computerChoice);
 }
 
 let counts = 1;
-
+// Loop another function 4 times
+// Calling a function within a function
 function playGame () {
   while (counts < 5 ) {
     counts++;
@@ -80,6 +79,7 @@ function playGame () {
   }
 }
 
+// Calling functions
 const computer = getComputerChoice()
 const human = getHumanChoice()
 const rockPaperScissors = playRound(human, computer) 
