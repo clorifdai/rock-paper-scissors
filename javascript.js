@@ -2,12 +2,6 @@
 
 console.log("Hello world!")
 
-// Membuat fungsi secara random mengembalikan batu, kertas dan gunting
-// buat fungsi `getComputerChoice`
-// Panduan 
-// batu = 0
-// kertas = 1
-// gunting = 2 
 function getComputerChoice() {
   let choice_num = Math.floor(Math.random() * 3);
   let choice = null;
@@ -33,45 +27,63 @@ function getHumanChoice() {
 let computerScore = 0;
 let humanScore = 0;
 
-function playRound (computerChoice, humanChoice) {
-  humanChoice = humanChoice.toLowerCase()
-  console.log(computerChoice, humanChoice)
+function playRound (humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+
+  console.log("Computer: ", computerChoice);
+  console.log("Human: ", humanChoice);
+
   // Paper
   if (computerChoice === "rock" && humanChoice === "paper") {
-    console.log("Human menang");
+    console.log("Human won");
     humanScore += 1;
   } else if (computerChoice === "paper" && humanChoice === "paper") {
-    console.log("Imbang");
+    console.log("Draw");
     computerScore += 0;
   } else if (computerChoice === "scissors" && humanChoice === "paper") {
-    console.log("Computer menang");
+    console.log("Computer won");
     computerScore += 1;
   } else /* Scissors */  if (computerChoice === "rock" && humanChoice === "scissors") {
-    console.log("Computer menang");
+    console.log("Computer won");
     computerScore += 1;
   } else if (computerChoice === "paper" && humanChoice === "scissors") {
-    console.log("Human menang");
+    console.log("Human won");
     humanScore += 1;
   } else if (computerChoice === "scissors" && humanChoice === "scissors") {
-    console.log("Imbang");
+    console.log("Draw");
     computerScore += 0;
   } else /* Rock*/ if (computerChoice === "rock" && humanChoice === "rock") {
-    console.log("imbang");
+    console.log("Draw");
     computerScore += 0;
   } else if (computerChoice === "paper" && humanChoice === "rock") {
-    console.log("Computer menang");
+    console.log("Computer won");
     computerScore += 1;
   } else if (computerChoice === "scissors" && humanChoice === "rock") {
-    console.log("Human menang");
+    console.log("Human won");
     humanScore += 1;
   } else null
   
-  console.log("Computer score: ", computerScore);
-  console.log("Human score: ", humanScore)
 
+  // return (humanChoice, computerChoice);
 }
 
+let counts = 1;
+
+function playGame () {
+  while (counts < 5 ) {
+    counts++;
+    console.log("Round", counts);
+    const human = getHumanChoice();
+    const computer = getComputerChoice();
+    playRound(human, computer);
+
+  }
+}
 
 const computer = getComputerChoice()
 const human = getHumanChoice()
-playRound(computer, human) 
+const rockPaperScissors = playRound(human, computer) 
+playGame(rockPaperScissors)
+console.log("")
+console.log("Computer score: ", computerScore);
+console.log("Human score: ", humanScore)
