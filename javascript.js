@@ -12,16 +12,14 @@ function getComputerChoice() {
   } else {
     choice = "scissors";
   }
-  // choice = "rock";
+
   return choice;
   console.log(choice);
 }
 
 function getHumanChoice() {
   let choice = prompt('Write “rock,” “paper,” “scissors.” Enter input.');
-  // ubah ke huruf kecil
   return choice;
-  console.log(choice)  
 }
 
 let computerScore = 0;
@@ -66,6 +64,7 @@ function playRound (humanChoice, computerChoice) {
 }
 
 let counts = 1;
+
 // Loop another function 4 times
 // Calling a function within a function
 function playGame () {
