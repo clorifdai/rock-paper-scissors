@@ -47,7 +47,7 @@ let humanScore = 0;
 
 function playRound (humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
-  let winner;
+  let winner = "";
   let versus;
   console.log("Computer: ", computerChoice);
   console.log("Human: ", humanChoice);
@@ -56,57 +56,63 @@ function playRound (humanChoice, computerChoice) {
   if (computerChoice === "rock" && humanChoice === "paper") {
     console.log("Human won!");
     humanScore += 1;
-    winner = "Human won!";
+    // winner = "Human won!";
 
   } else if (computerChoice === "paper" && humanChoice === "paper") {
     console.log("Draw");
     computerScore += 0;
-    winner = "Draw!";
+    // winner = "Draw!";
 
   } else if (computerChoice === "scissors" && humanChoice === "paper") {
     console.log("Computer won");
     computerScore += 1;
-    winner = "Computer won!";
+    // winner = "Computer won!";
 
   } else /* Scissors */  if (computerChoice === "rock" && humanChoice === "scissors") {
     console.log("Computer won");
     computerScore += 1;
-    winner = "Computer won!";
+    // winner = "Computer won!";
 
   } else if (computerChoice === "paper" && humanChoice === "scissors") {
     console.log("Human won");
     humanScore += 1;
-    winner = "Human won!";
+    // winner = "Human won!";
 
   } else if (computerChoice === "scissors" && humanChoice === "scissors") {
     console.log("Draw");
     computerScore += 0;
-    winner = "Draw!";
+    // winner = "Draw!";
 
   } else /* Rock*/ if (computerChoice === "rock" && humanChoice === "rock") {
     console.log("Draw");
     computerScore += 0;
-    winner = "Draw!";
+    // winner = "Draw!";
 
   } else if (computerChoice === "paper" && humanChoice === "rock") {
     console.log("Computer won");
     computerScore += 1;
-    winner = "Computer won!";
+    // winner = "Computer won!";
 
   } else if (computerChoice === "scissors" && humanChoice === "rock") {
     console.log("Human won");
     humanScore += 1;
-    winner = "Human won!";
+    // winner = "Human won!";
 
-  } else null
+  } else null;
+  
+  if (humanScore === 5 ) {
+    winner = "===Human won!==="
+  } else if (computerScore === 5) {
+    winner = "===Computer won!==="
+  } else null;
 
-  let textWinner = `${humanChoice.toUpperCase()}(Human) VS ${computerChoice.toUpperCase()}(Computer) ${winner}`
+  let textWinner = `H ${humanChoice.toUpperCase()}(${humanScore}) VS C ${computerChoice.toUpperCase()}(${computerScore}) ${winner}`
     const newElement = document.createElement("div");
     newContent = document.createTextNode(textWinner);
     newElement.appendChild(newContent);
     newElement.classList.add("paragraph");
     document.querySelector("body").appendChild(newElement);
-
+  // tambah running score yang mana akan memenangkan player yang mendapat 5 point
 
 }
 
